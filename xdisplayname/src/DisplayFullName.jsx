@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState ,useRef} from "react";
 import "./DisplayFullName.css";
 
 const FullName=()=>{
@@ -6,6 +6,7 @@ const FullName=()=>{
 const[firstname,setFirstname]=useState("");
 const[lastname,setLastname]=useState("");
 const[fullname,setFullname]=useState("");
+const inputRef=useRef(null);
 
 
 const handleFirstName=(e)=>{
@@ -18,6 +19,7 @@ const handleLastName=(e)=>{
 
 const handleSubmit=()=>{
     setFullname(`${firstname} ${lastname}`)
+    inputRef.current.focus();
     
 }
 
@@ -27,7 +29,7 @@ const handleSubmit=()=>{
     <h1>Full Name Display</h1>
    <div>
    <label for="firstname">First Name:</label>
-   <input type="text" id="firstname" name="firstname" onChange={handleFirstName}/>
+   <input type="text" id="firstname" name="firstname" onChange={handleFirstName} ref={inputRef}/>
    </div>
         <div>
             <label for="lastname">Last Name:</label>
