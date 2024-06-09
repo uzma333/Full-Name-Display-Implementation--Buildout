@@ -7,7 +7,7 @@ const[firstname,setFirstname]=useState("");
 const[lastname,setLastname]=useState("");
 const[fullname,setFullname]=useState("");
 const[validation,setValidation]=useState("");
-
+const[isSubmitted,setIsSubmitted]=useState(false);
 
 
 
@@ -27,6 +27,7 @@ const handleValidation=(e)=>{
     }else{
     setFullname(`${firstname} ${lastname}`)
     setValidation("");
+    setIsSubmitted(true);
 }
 }
 
@@ -48,7 +49,7 @@ const handleValidation=(e)=>{
        <button>Submit</button>
         </form> 
         {validation && <p className="validate">{validation}</p>}
-        <p>Full Name: {fullname} </p>
+       {isSubmitted && <p>Full Name: {fullname} </p>}
 </div>
     )
 }
