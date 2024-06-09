@@ -7,5 +7,6 @@
     margin-bottom: 10px;
 } */
 button{
+    display: flex;
     align-self: flex-start;
 }
