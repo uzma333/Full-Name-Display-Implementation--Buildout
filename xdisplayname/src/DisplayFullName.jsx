@@ -22,6 +22,8 @@ const handleLastName=(e)=>{
 
 const handleValidation=(e)=>{
     e.preventDefault();
+
+    
     if(!firstname || !lastname){
         setValidation("please enter the field")
     }else{
@@ -39,14 +41,16 @@ const handleValidation=(e)=>{
     <form onSubmit={handleValidation}>
         <div>
    <label for="firstname">First Name:</label>
-   <input type="text" id="firstname" name="firstname" onChange={handleFirstName} required pattern="[A-Za-z]{3,}" title="Three or more letters"/>
+   <input type="text" id="firstname" name="firstname" value={firstname} onChange={handleFirstName} required pattern="[A-Za-z]{,}" title="Three or more letters" />
+  
    </div>
   
        <div>
             <label for="lastname">Last Name:</label>
-        <input type="text" id="lastname" name="lastname" onChange={handleLastName} required pattern="[A-Za-z]{3,}" title="Three or more letters"/>
+        <input type="text" id="lastname" name="lastname" value={lastname} onChange={handleLastName} required pattern="[A-Za-z]{,}" title="Three or more letters" />
+        
        </div>
-       <button>Submit</button>
+       <button type="submit">Submit</button>
         </form> 
         {validation && <p className="validate">{validation}</p>}
        {isSubmitted && <p>Full Name: {fullname} </p>}
